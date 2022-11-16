@@ -53,38 +53,9 @@ function BarChart() {
             setNewData( [response.data.twitter.timelineStats.timeline[0].sentimentAsCategories.neutralTweets, response.data.twitter.timelineStats.timeline[1].sentimentAsCategories.neutralTweets]);
             setPosData( [response.data.twitter.timelineStats.timeline[0].sentimentAsCategories.positiveTweets, response.data.twitter.timelineStats.timeline[1].sentimentAsCategories.positiveTweets]);
 
-            // console.log(response.data.twitter.timelineStats.timeline[0].sentimentAsCategories.positiveTweets)
-            //console.log(response)
-           // console.log("useEffect" ,chartData)
-            //tweets = 
-            // for(const allDatas of response.data.data){
-            //     tweets.push(allDatas.name);
-            //     nbrOfTweets.push(allDatas.age);
-            // }
+           
             console.log(response.data.twitter.timelineStats.timeline)
-            // console.log(response.data.twitter.timelineStats.timeline[0].currentTimeStamp.toString().substring(0,10))
-            // setChartData([
-            //     {
-            //         x: ["date1", "11"],
-            //         y: [12, 18],
-            //         name: 'Negative',
-            //         type: 'bar'
-            //       },
-            //       {
-            //         x: ["date1", "11"],
-            //         y: [12, 18],
-            //         name: 'neutral',
-            //         type: 'bar'
-            //       },
-            //       {
-            //         x: ["date1", "11"],
-            //         y: [12, 18],
-            //         name: 'Posetive',
-            //         type: 'bar'
-            //       }
-            // ])
-            // console.log(tweets)
-            // console.log(nbrOfTweets)
+           
         })
         .catch(error => {
             console.log(error)
