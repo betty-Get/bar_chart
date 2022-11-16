@@ -22,7 +22,7 @@ function NewData() {
     }
 
     const handleClick = (e) =>{
-      setDetailData(facebook[e.points[0].pointIndex]);
+      setDetailData(twitter[e.points[0].pointIndex]);
     }
 
     useEffect(()=>{
