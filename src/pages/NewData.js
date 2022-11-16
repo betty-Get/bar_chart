@@ -5,7 +5,7 @@ import ReBar from '../components/ReBar';
 
 function NewData() {
     const [twitterData, setTwitterData] = useState([]);
-    const [facebook, setFacebookData] = useState([]);
+    // const [facebook, setFacebookData] = useState([]);
     const [detailData, setDetailData] = useState([]);
 
     const getData = (url,src)=>{
