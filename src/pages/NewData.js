@@ -5,36 +5,58 @@ import ReBar from '../components/ReBar';
 
 function NewData() {
     const [twitterData, setTwitterData] = useState([]);
-    // const [facebook, setFacebookData] = useState([]);
     const [detailData, setDetailData] = useState([]);
+    const [rawData, setRawData] = useState([]);
+    let date = [];
+    let negData = [];
+    let posData = [];
+    let neuData = [];
+    
 
     const getData = (url,src)=>{
       Axios.get(url).then(res=>{
         if(src == "twitter")
-        setTwitterData(res.data.twitter.timelineStats.timeline);
-
-        // else{
-        //   console.log(res.data)
-        //     setFacebookData(res.data.facebook.timelineStats.timeline);
-
-        // }
+        
+        res.data.twitter.timelineStats.timeline.map(e=>{
+          date.push(e.top20TweetsByFollowers[3].created);
+          negData.push(e.sentimentAsCategories.negativeTweets);
+          posData.push(e.sentimentAsCategories.positiveTweets);
+          neuData.push(e.sentimentAsCategories.neutralTweets);
+      });
+      setRawData([{
+        x: date,
+        y: negData,
+        name: 'Negative',
+        type: 'bar'
+    },
+    {
+        x: date,
+        y: neuData,
+        name: 'Neutral',
+        type: 'bar'
+    },
+    {
+        x: date,
+        y: posData,
+        name: 'Posetive',
+        type: 'bar'
+    }]);
+      setTwitterData(res.data.twitter.timelineStats.timeline);
       })
     }
 
     const handleClick = (e) =>{
-      setDetailData(twitter[e.points[0].pointIndex]);
+      setDetailData([e.points[0].pointIndex]);
     }
 
     useEffect(()=>{
       getData("http://localhost:3000/stats","twitter");
-      // getData("http://localhost:8000/ProfileInfo","facebok");
     },[])
 
 
   return (
     <div>
-      {twitterData.length !=0 && <ReBar data = {twitterData} onClick={handleClick}/>}
-      {/* {twitterData.length !=0 && <ReBar data = {facebook} onClick={handleClick}/>} */}
+      {twitterData.length !=0 && <ReBar data = {rawData} onClick={handleClick}/>}
       {detailData.length != 0 && <Detail data={detailData}/>}
     </div>
   )

@@ -470,9 +470,9 @@
               }
             ],
             "sentimentAsCategories": {
-              "positiveComments": 0,
+              "positiveComments": 2,
               "neutralComments": 1,
-              "negativeComments": 0
+              "negativeComments": 4
             },
             "meanSentiment": 0.0,
             "meanSubjectivity": 0.5,

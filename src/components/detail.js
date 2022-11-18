@@ -6,11 +6,13 @@ function Detail(props){
             <td>Date & Time</td>
             <td>Sentimate</td>
         </tr>
-        {props.data.externalTweets.map(e=>{
+        
+        {/* console.log({props.data.externalTweets.created}) */}
+        {props.data.map(e=>{
         return <tr>
-            <td>{e.tweet}</td>
+            <td>{e.comment}</td>
             <td>{e.date}</td>
-            <td>{e.sentimentPolarityLabel}</td>
+            <td>{e.sentiment}</td>
         </tr>
 
         })}
