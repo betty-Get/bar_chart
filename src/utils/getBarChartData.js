@@ -26,7 +26,8 @@ export function getBarChartData(timeline,socialMedia){
             x: date,
             y: negData,
             name: 'Negative',
-            type: 'bar'
+            type: 'bar',
+            marker: {color: 'red'}
         },
         {
             x: date,
@@ -37,7 +38,7 @@ export function getBarChartData(timeline,socialMedia){
         {
             x: date,
             y: posData,
-            name: 'Posetive',
+            name: 'Positive',
             type: 'bar'
         }
     ]

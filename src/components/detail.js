@@ -1,18 +1,19 @@
+import './detail.css'
 function Detail(props){
-    return <div>
-        <table className="table">
+    return <div  className="mytable">
+        <table>
         <tr>
             <td>Comment</td>
-            <td>Date & Time</td>
-            <td>Sentimate</td>
+            <td className='dateSection'>Date & Time</td>
+            <td className='sentimentSection'>Sentimate</td>
         </tr>
         
         {/* console.log({props.data.externalTweets.created}) */}
         {props.data.map(e=>{
         return <tr>
-            <td>{e.comment}</td>
-            <td>{e.date}</td>
-            <td>{e.sentiment}</td>
+            <td className='commentSection'>{e.comment}</td>
+            <td className='dateSection'>{e.date}</td>
+            <td className='sentimentSection'>{e.sentiment}</td>
         </tr>
 
         })}
