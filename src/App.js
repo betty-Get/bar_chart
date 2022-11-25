@@ -20,12 +20,13 @@ function App() {
   },[]);
 
   const handleClick = (index,type) =>{
+    let sentiment = index.points[0].fullData.name 
     let tableData;
     if(type == "twitter"){
-      tableData = getDetailInfo(twitterJson.stats.twitter.timelineStats.timeline,index.points[0].pointIndex,"twitter")
+      tableData = getDetailInfo(twitterJson.stats.twitter.timelineStats.timeline,index.points[0].pointIndex,"twitter",sentiment)
     }
     else{
-      tableData = getDetailInfo(facebookJson.stats.facebook.timelineStats.timeline,index.points[0].pointIndex,"facebook")
+      tableData = getDetailInfo(facebookJson.stats.facebook.timelineStats.timeline,index.points[0].pointIndex,"facebook",sentiment)
     }
 
     setDetailInfo(tableData);
